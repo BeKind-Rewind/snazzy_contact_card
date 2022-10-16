@@ -11,6 +11,15 @@ import Logo from '../images/logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
 
+
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  })
+};
+
+
 // onload functionality
 window.addEventListener('load', function () {
   initDb();
