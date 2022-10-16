@@ -19,7 +19,6 @@ if ('serviceWorker' in navigator) {
   })
 };
 
-
 // onload functionality
 window.addEventListener('load', function () {
   initDb();
@@ -27,6 +26,23 @@ window.addEventListener('load', function () {
   document.getElementById('logo').src = Logo;
   document.getElementById('bearThumbnail').src = Bear;
   document.getElementById('dogThumbnail').src = Dog;
+});
+
+// Install btn
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  installBtn.style.visibility = 'visible';
+  installBtn.addEventListener('click', () => {
+    event.prompt();
+    installBtn.setAttribute('disabled', true);
+    installBtn.textContent = 'Installed!';
+  });
+});
+
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
 });
 
 // Form functionality
