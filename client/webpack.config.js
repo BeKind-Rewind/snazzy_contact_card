@@ -13,9 +13,16 @@ module.exports = {
       title: 'Webpack Plugin',
     })
   ],
-  mode: 'development',
   module: {
     rules: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
@@ -29,14 +36,5 @@ module.exports = {
         }
       }
     ]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
+  }
 };
-
