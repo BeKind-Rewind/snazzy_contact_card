@@ -1,8 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const { match } = require('assert');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
+// const { match } = require('assert');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -31,12 +31,12 @@ module.exports = {
       publicPath: './',
       icons: [
         {
-          src: path.resolve('src/images/icon-manifest.png'),
+          src: path.resolve('src/images/logo.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('assets', 'icons'),
         },
         {
-          src: path.resolve('src/images/icon-manifest.png'),
+          src: path.resolve('src/images/logo.png'),
           size: '1024x1024',
           destination: path.join('assets', 'icons'),
           purpose: 'maskable'
@@ -62,7 +62,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
+              ['@babel/preset-env']
             ]
           }
         }
